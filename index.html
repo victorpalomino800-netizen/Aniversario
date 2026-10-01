@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#09040d" />
+  <title>Nuestro Tiempo Juntos ❤️</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="starfield" aria-hidden="true"></canvas>
+  <div id="petals" aria-hidden="true"></div>
+  <div id="toast" role="status" aria-live="polite"></div>
+
+  <!-- 1. CONTRASEÑA -->
+  <section id="lockScreen" class="panel lock-screen">
+    <div class="aurora aurora-a"></div>
+    <div class="aurora aurora-b"></div>
+
+    <div class="lock-wrap">
+      <div class="heart-constellation" aria-hidden="true">
+        <span>♥</span>
+      </div>
+
+      <h1 class="script-title">Nuestro<br>Tiempo Juntos</h1>
+      <p class="eyebrow">UN LUGAR LLENO DE RECUERDOS</p>
+      <p class="lock-label">Ingresa nuestra fecha</p>
+
+      <div id="pinDisplay" class="pin-display" aria-label="Código de cuatro dígitos">
+        <span></span><span></span><span></span><span></span>
+      </div>
+
+      <div class="keypad" aria-label="Teclado numérico">
+        <button class="key" data-key="1">1</button>
+        <button class="key" data-key="2">2</button>
+        <button class="key" data-key="3">3</button>
+        <button class="key" data-key="4">4</button>
+        <button class="key" data-key="5">5</button>
+        <button class="key" data-key="6">6</button>
+        <button class="key" data-key="7">7</button>
+        <button class="key" data-key="8">8</button>
+        <button class="key" data-key="9">9</button>
+        <button class="key key-heart" id="submitPin" aria-label="Entrar">♡</button>
+        <button class="key" data-key="0">0</button>
+        <button class="key key-delete" id="deletePin" aria-label="Borrar">⌫</button>
+      </div>
+
+      <p id="pinError" class="pin-error"></p>
+      <p class="hint">Pista: el día en que comenzó todo ✨</p>
+    </div>
+  </section>
+
+  <main id="app" class="app app-hidden">
+    <!-- Player flotante -->
+    <button id="musicFab" class="music-fab" aria-label="Reproducir o pausar música">♫</button>
+
+    <div id="miniPlayer" class="mini-player">
+      <div class="cover">
+        <img src="assets/photos/foto01.jpg" alt="" />
+      </div>
+      <div class="track-copy">
+        <strong>Rewrite the Stars</strong>
+        <span>Zac Efron &amp; Zendaya</span>
+        <div class="track-line"><i id="trackProgress"></i></div>
+      </div>
+      <button id="playerToggle" aria-label="Reproducir">▶</button>
+    </div>
+
+    <audio id="audio" loop preload="metadata">
+      <source src="assets/audio/zendaya_zac_efron_-_rewrite_the_stars_(mp3.pm).mp3" type="audio/mpeg" />
+    </audio>
+
+    <!-- 2. BIENVENIDA -->
+    <section class="panel welcome reveal" id="welcome">
+      <div class="welcome-overlay"></div>
+      <div class="content narrow">
+        <p class="eyebrow">01 • 06 • 2025</p>
+        <h2 class="script-title giant">Feliz<br>Aniversario</h2>
+        <p class="lead">Gracias por ser mi lugar favorito<br>en este mundo ♡</p>
+        <a class="primary-btn" href="#counter">Continuar ♡</a>
+      </div>
+      <a class="scroll-cue" href="#counter" aria-label="Bajar">⌄</a>
+    </section>
+
+    <!-- 3. CONTADOR -->
+    <section class="panel counter-section reveal" id="counter">
+      <div class="content counter-content">
+        <h2 class="script-title section-title">Nuestro<br>Tiempo Juntos ♡</h2>
+        <p class="eyebrow light">DESDE 01 DE JUNIO DE 2025</p>
+
+        <div class="counter-grid">
+          <div class="time-card"><strong id="days">0</strong><span>Días</span></div>
+          <div class="time-card"><strong id="hours">00</strong><span>Horas</span></div>
+          <div class="time-card"><strong id="minutes">00</strong><span>Minutos</span></div>
+          <div class="time-card"><strong id="seconds">00</strong><span>Segundos</span></div>
+        </div>
+
+        <p class="counter-message">Y cada segundo contigo vale la pena ♡</p>
+        <div class="counter-photo">
+          <img src="assets/photos/foto01.jpg" alt="Un momento juntos" />
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. MOMENTOS -->
+    <section class="panel moments reveal" id="moments">
+      <div class="content wide">
+        <h2 class="script-title section-title">Momentos de Amor ♡</h2>
+        <p class="section-subtitle">Cada foto guarda un pedacito de nuestra historia</p>
+
+        <div id="polaroidGrid" class="polaroid-grid"></div>
+
+        <p class="quote">“No son solo fotos,<br>son momentos que siempre quiero vivir contigo…” ♡</p>
+      </div>
+    </section>
+
+    <!-- 5. GALAXIA -->
+    <section class="panel galaxy reveal" id="galaxy">
+      <div class="content wide galaxy-copy">
+        <h2 class="script-title section-title">Pedacitos de<br>Nuestra Historia ♡</h2>
+        <p class="section-subtitle">Cada momento nuestro es una estrella en esta galaxia de recuerdos</p>
+      </div>
+
+      <div id="galaxyStage" class="galaxy-stage" aria-label="Galaxia giratoria de fotografías">
+        <div class="galaxy-rings" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="galaxy-heart" aria-hidden="true">♥</div>
+      </div>
+
+      <p class="galaxy-hint">☝ Arrastra o desliza para explorar nuestra galaxia ♡</p>
+    </section>
+
+    <!-- 6. LÍNEA DE TIEMPO -->
+    <section class="panel timeline-section reveal" id="timeline">
+      <div class="content timeline-content">
+        <h2 class="script-title section-title">Nuestra Línea de Tiempo ♡</h2>
+        <p class="section-subtitle">De muchos momentos, un solo nosotros…</p>
+
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-dot">♥</div>
+            <img src="assets/photos/Comenzamos nuestra historia.jpeg" alt="Comienzo de nuestra historia">
+            <div>
+              <time>01/06/2025</time>
+              <h3>Comenzamos nuestra historia ♡</h3>
+              <p>El día en que oficialmente comenzó todo.</p>
+            </div>
+          </article>
+
+          <article class="timeline-item pending-item">
+            <div class="timeline-dot">♥</div>
+            <img src="assets/photos/Nuestra primera salida.jpeg" alt="Recuerdo juntos">
+            <div>
+              <h3>Nuestra primera salida</h3>
+              <p>Aquí colocaremos el recuerdo real y su fecha.</p>
+            </div>
+          </article>
+
+          <article class="timeline-item pending-item">
+            <div class="timeline-dot">♥</div>
+            <img src="assets/photos/Nuestras risas.jpeg" alt="Recuerdo juntos">
+            <div>
+              <h3>Nuestras risas</h3>
+              <p>Un momento que merece quedarse aquí para siempre.</p>
+            </div>
+          </article>
+
+          <article class="timeline-item pending-item">
+            <div class="timeline-dot">♥</div>
+            <img src="assets/photos/Momentos inolvidables.jpeg" alt="Recuerdo juntos">
+            <div>
+              <h3>Momentos inolvidables</h3>
+              <p>Seguimos creando recuerdos.</p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-dot">♥</div>
+            <img src="assets/photos/Esto apenas comienza.jpeg" alt="Un momento juntos">
+            <div>
+              <time>Y LO QUE FALTA…</time>
+              <h3>Esto apenas comienza…</h3>
+              <p>Hay mucho más por vivir ♡</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. DEDICATORIA -->
+    <section class="panel dedication reveal" id="dedication">
+      <div class="dedication-bg"></div>
+      <div class="content dedication-copy">
+        <h2 class="script-title section-title">Para ti ♡</h2>
+        <p>
+          Gracias por estar en cada momento,<br>
+          por hacer mi vida más bonita,<br>
+          por tu forma única de ver el mundo<br>
+          y por ser ese lugar donde siempre quiero volver.<br><br>
+          Eres mi persona favorita,<br>
+          y cada día a tu lado se siente especial. ♡
+        </p>
+        <div class="heart-line">⌁ ♡ ⌁</div>
+      </div>
+    </section>
+
+    <!-- 8. CARTA CERRADA -->
+    <section class="panel letter-section reveal" id="letterSection">
+      <div class="content letter-intro">
+        <h2 class="script-title section-title">Una Carta Para Ti ♡</h2>
+        <p class="section-subtitle">Hay cosas que quiero decirte…</p>
+
+        <div id="envelope" class="envelope" aria-hidden="true">
+          <div class="envelope-back"></div>
+          <div class="envelope-paper">
+            <span>Para ti ♡</span>
+          </div>
+          <div class="envelope-left"></div>
+          <div class="envelope-right"></div>
+          <div class="envelope-front"></div>
+          <div class="envelope-flap"></div>
+          <div class="envelope-seal">♥</div>
+        </div>
+
+        <button id="openLetter" class="primary-btn letter-btn">Abrir mi carta ♡</button>
+      </div>
+    </section>
+
+    <!-- 9. CARTA ABIERTA -->
+    <div id="letterModal" class="letter-modal" aria-hidden="true">
+      <button id="closeLetter" class="close-letter" aria-label="Cerrar carta">←</button>
+      <div class="paper-wrap">
+        <div class="paper-petals" aria-hidden="true">🌸　🌺　🌸</div>
+        <article class="paper">
+          <h2 class="script-title">Mi Amor ♡</h2>
+          <p>
+  Yo me estaba ahogando cuando te conocí…
+  y sin darme cuenta, llegaste a mi vida y comenzaste a hacer que todo se sintiera un poco más bonito.
+</p>
+
+<p>
+  Desde aquel 01 de junio de 2025 hemos vivido tantos momentos juntos:
+  días buenos, días difíciles, risas, salidas, abrazos y recuerdos que quizá parecen pequeños,
+  pero que para mí significan muchísimo porque los viví contigo.
+</p>
+
+<p>
+  Me encanta pensar en todo lo que hemos construido hasta ahora.
+  En cada fotografía hay una historia, una conversación, una risa o simplemente un momento
+  en el que fui feliz porque estabas a mi lado.
+</p>
+
+<p>
+  Gracias por tu paciencia, por tu cariño, por acompañarme y por ser esa persona
+  con la que puedo disfrutar incluso de las cosas más simples.
+  No sé qué nos espera más adelante, pero sí sé que quiero seguir descubriéndolo contigo.
+</p>
+
+<p>
+  Si pudiera volver al día en que comenzó todo, volvería a elegir conocerte,
+  volvería a vivir cada momento y volvería a escoger caminar a tu lado.
+</p>
+
+<p>
+  Hoy solo quiero recordarte cuánto significas para mí y decirte que,
+  mientras sigamos creciendo, aprendiendo y eligiéndonos,
+  siempre habrá nuevas páginas por escribir en nuestra historia.
+</p>
+
+<p>
+  Feliz aniversario, mi amor. ❤️
+</p>
+
+<p class="paper-sign">
+  Nuestra vida juntos<br>
+  apenas comienza… ♡
+</p>
+        </article>
+      </div>
+    </div>
+
+    <!-- 10. CIERRE -->
+    <section class="panel ending reveal" id="ending">
+      <div class="content narrow">
+        <h2 class="script-title section-title ending-title">Nuestra vida juntos<br>apenas comienza… ♡</h2>
+        <p class="eyebrow light">GRACIAS POR SER PARTE<br>DE ESTA HERMOSA HISTORIA.</p>
+        <div class="ending-heart">♥</div>
+        <p class="ending-date">01 • 06 • 2025 — ∞</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

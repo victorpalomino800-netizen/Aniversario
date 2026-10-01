@@ -1,0 +1,53 @@
+ANIVERSARIO WEB v0.2 — GALAXIA
+================================
+
+LISTO PARA ABRIR EN VS CODE.
+
+1) Abre esta carpeta en VS Code.
+2) Abre index.html con Live Server.
+3) La contraseña visual se ingresa SOLO con botones numéricos:
+   01/06  ->  se escribe como 0106.
+4) La música está preparada para:
+   Rewrite the Stars — Zac Efron & Zendaya
+
+IMPORTANTE SOBRE LA MÚSICA
+--------------------------
+Por derechos de autor, el MP3 no viene incluido en el ZIP.
+Coloca una copia de audio que tengas derecho a usar aquí:
+
+assets/audio/rewrite-the-stars.mp3
+
+Luego recarga la web.
+
+CAMBIOS DE ESTA VERSIÓN
+-----------------------
+- Pantalla de contraseña estilo keypad numérico.
+- Bienvenida estilo romántico/neón.
+- Contador en tiempo real desde 01/06/2025.
+- Galería "Momentos de Amor" con las 12 fotos.
+- "Pedacitos de Nuestra Historia" como GALAXIA GIRATORIA.
+- La galaxia gira sola y también se puede arrastrar/deslizar.
+- Línea de tiempo preparada para colocar las fechas reales.
+- Dedicatoria visual.
+- Sobre animado.
+- Carta corregida: ya NO queda cortada dentro del sobre.
+  Al abrir, la carta aparece en una vista completa y legible.
+- Cierre "Nuestra vida juntos apenas comienza..."
+- Player flotante preparado para Rewrite the Stars.
+- Diseño responsive para celular y PC.
+
+DATOS PENDIENTES
+----------------
+Cuando los tengas, cambiaremos:
+- nombres/apodos,
+- fechas reales de la línea de tiempo,
+- dedicatoria definitiva,
+- carta final.
+
+ARCHIVOS PRINCIPALES
+--------------------
+index.html
+style.css
+script.js
+assets/photos/foto01.jpg ... foto12.jpg
+assets/audio/rewrite-the-stars.mp3  <- debes agregarlo tú
